@@ -3,7 +3,7 @@ package clcstudy.crudSample.controller;
 public class UserForm {
     private String email;
     private String passwd;
-    private String nickname;
+    private String name;
 
     public String getEmail() {
         return email;
@@ -21,11 +21,11 @@ public class UserForm {
         this.passwd = passwd;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getName() {
+        return name;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setName(String name) {
+        this.name = name;
     }
 }

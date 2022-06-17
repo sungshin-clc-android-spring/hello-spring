@@ -4,7 +4,7 @@ public class User {
     private long userId;
     private String email;
     private String passwd;
-    private String nickname;
+    private String name;
 
     public long getUserId() {
         return userId;
@@ -30,11 +30,11 @@ public class User {
         this.passwd = passwd;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getName() {
+        return name;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setName(String name) {
+        this.name = name;
     }
 }

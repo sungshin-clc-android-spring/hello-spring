@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
 public class MemoryUserRepository implements UserRepository {
     private static Map<Long, User> store = new HashMap<>();
     private static long sequence = 0L;
@@ -25,7 +24,7 @@ public class MemoryUserRepository implements UserRepository {
         User u = store.get(id);
         u.setEmail(user.getEmail());
         u.setPasswd(user.getPasswd());
-        u.setNickname(user.getNickname());
+        u.setName(user.getName());
 
         store.replace(id, u);
 

@@ -31,7 +31,7 @@ public class UserController {
         User u = new User();
         u.setEmail(form.getEmail());
         u.setPasswd(form.getPasswd());
-        u.setNickname(form.getNickname());
+        u.setName(form.getName());
 
         long userId = userService.join(u);
         Map<String, Long> result = new HashMap<>();
@@ -46,7 +46,7 @@ public class UserController {
         User u = new User();
         u.setEmail(form.getEmail());
         u.setPasswd(form.getPasswd());
-        u.setNickname(form.getNickname());
+        u.setName(form.getName());
         System.out.println(u);
         return userService.updateUser(id, u);
     }
