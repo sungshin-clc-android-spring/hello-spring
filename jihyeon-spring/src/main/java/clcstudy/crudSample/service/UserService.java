@@ -4,10 +4,11 @@ import clcstudy.crudSample.domain.User;
 import clcstudy.crudSample.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+@Transactional
 public class UserService {
     private final UserRepository userRepository;
 
@@ -18,6 +19,10 @@ public class UserService {
 
     public Long join(User user) {
         return userRepository.save(user);
+    }
+
+    public Long login(User user) {
+        return userRepository.login(user);
     }
 
     public List<User> findUsers() {

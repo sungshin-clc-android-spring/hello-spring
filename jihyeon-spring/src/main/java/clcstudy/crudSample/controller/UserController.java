@@ -25,6 +25,20 @@ public class UserController {
         return userService.findUsers();
     }
 
+    @PostMapping("login")
+    @ResponseBody
+    public Object login(@RequestBody UserForm form){
+        User u = new User();
+        u.setEmail(form.getEmail());
+        u.setPasswd(form.getPasswd());
+
+        Long userId = userService.login(u);
+        Map<String, Long> result = new HashMap<>();
+        result.put("userId", userId);
+
+        return result;
+    }
+
     @PostMapping("/user")
     @ResponseBody
     public Object join(@RequestBody UserForm form){

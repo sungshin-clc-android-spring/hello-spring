@@ -1,6 +1,7 @@
 package clcstudy.crudSample.repository;
 
 import clcstudy.crudSample.domain.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -29,6 +30,18 @@ public class JdbcTemplateUserRepository implements UserRepository{
         Number key = jdbcInsert.executeAndReturnKey(new
                 MapSqlParameterSource(parameters));
         return key.longValue();
+    }
+
+    @Override
+    public Long login(User user) {
+        try {
+            String sql = "select id from user where email = ? and passwd = ?";
+            Object[] params = new Object[]{user.getEmail(), user.getPasswd()};
+            Long userId = jdbcTemplate.queryForObject(sql, params, Long.class);
+            return userId;
+        } catch (EmptyResultDataAccessException e) {
+            return Long.parseLong("-1");
+        }
     }
 
     @Override

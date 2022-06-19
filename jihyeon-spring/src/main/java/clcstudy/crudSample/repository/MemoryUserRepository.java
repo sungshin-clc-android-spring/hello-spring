@@ -20,6 +20,11 @@ public class MemoryUserRepository implements UserRepository {
     }
 
     @Override
+    public Long login(User user) {
+        return null;
+    }
+
+    @Override
     public String update(Long id, User user) {
         User u = store.get(id);
         u.setEmail(user.getEmail());
