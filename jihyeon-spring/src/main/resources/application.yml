@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hello_spring?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: root1234
+  servlet:
+    multipart:
+      location: C:\Users\Owner\Desktop\jihyeon-spring\jihyeon-spring\src\main\resources\static\image
+      max-file-size: 100MB
+      max-request-size: 600KB
