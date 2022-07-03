@@ -35,7 +35,7 @@ public class JdbcTemplatePostRepository implements PostRepository{
 
     @Override
     public List<Post> findAll() {
-        return jdbcTemplate.query("select * from post", postRowMapper());
+        return jdbcTemplate.query("select * from post join user on post.userId = user.id", postRowMapper());
     }
 
     private RowMapper<Post> postRowMapper() {
@@ -46,6 +46,7 @@ public class JdbcTemplatePostRepository implements PostRepository{
             post.setContents(rs.getString("contents"));
             post.setImgPath(rs.getString("img_path"));
             post.setUserId(rs.getLong("userId"));
+            post.setUserName(rs.getString("name"));
             return post;
         };
     }
